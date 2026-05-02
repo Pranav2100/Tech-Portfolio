@@ -18,7 +18,6 @@
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.65; overflow-x: hidden; }
 
-/* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 22px 56px; background: rgba(8,12,16,0.88); border-bottom: 1px solid var(--border); backdrop-filter: blur(18px); }
 .nav-logo { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
 .nav-logo span { color: var(--accent); }
@@ -26,7 +25,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .nav-back:hover { color: var(--accent); }
 .nav-back::before { content: '←'; }
 
-/* HERO */
 .proj-hero { min-height: 52vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 140px 56px 64px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
 .proj-hero-bg { position: absolute; inset: 0; pointer-events: none; }
 .proj-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards; }
@@ -39,7 +37,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .tag.purple { background: rgba(123,97,255,0.08); border-color: rgba(123,97,255,0.22); color: var(--accent2); }
 .tag.green  { background: rgba(0,229,160,0.07);  border-color: rgba(0,229,160,0.2);   color: var(--green); }
 
-/* CONTENT */
 .proj-content { max-width: 1100px; margin: 0 auto; padding: 80px 56px; display: grid; grid-template-columns: 1fr 320px; gap: 72px; }
 .proj-main h2 { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; margin-top: 48px; }
 .proj-main h2:first-child { margin-top: 0; }
@@ -48,20 +45,19 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .proj-main ul li { color: var(--muted); font-size: 0.95rem; line-height: 1.7; padding-left: 20px; position: relative; }
 .proj-main ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
 
-/* SIDEBAR */
-.proj-sidebar { display: flex; flex-direction: column; gap: 28px; }
+.proj-sidebar { display: flex; flex-direction: column; gap: 20px; }
 .sidebar-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
 .sidebar-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 .sidebar-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--muted); }
 .sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
 .sidebar-item span { color: var(--text); font-weight: 500; margin-left: auto; font-size: 0.84rem; }
-.btn-github { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: var(--accent); color: var(--bg); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.btn-github { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: var(--accent); color: var(--bg); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 0; }
 .btn-github:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,212,255,0.25); }
+.btn-demo { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: transparent; color: var(--green); border: 1px solid rgba(0,229,160,0.35); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, background 0.2s, box-shadow 0.2s; }
+.btn-demo:hover { transform: translateY(-2px); background: rgba(0,229,160,0.07); box-shadow: 0 8px 28px rgba(0,229,160,0.12); }
 
-/* DIVIDER */
 hr { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-/* NEXT PREV */
 .proj-nav { max-width: 1100px; margin: 0 auto; padding: 0 56px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
 .pnav-item { background: var(--card); padding: 28px 32px; text-decoration: none; color: inherit; transition: background 0.2s; }
 .pnav-item:hover { background: #151e28; }
@@ -69,7 +65,6 @@ hr { border: none; border-top: 1px solid var(--border); margin: 0; }
 .pnav-name { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
 .pnav-item.next { text-align: right; border-left: 1px solid var(--border); }
 
-/* FOOTER */
 footer { border-top: 1px solid var(--border); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
 footer p { font-size: 0.78rem; color: var(--muted); }
 .footer-links { display: flex; gap: 24px; }
@@ -99,45 +94,47 @@ footer p { font-size: 0.78rem; color: var(--muted); }
   <div class="proj-hero-bg" style="background: radial-gradient(ellipse 700px 500px at 70% 60%, rgba(123,97,255,0.1), transparent);"></div>
   <div class="proj-eyebrow">Project 05 — 2023</div>
   <h1 class="proj-title">Student Dropout <em>Prediction</em></h1>
-  <p class="proj-desc">A predictive analytics model that identifies at-risk students before they disengage, using behavioural, demographic, and academic features to generate early-intervention signals for educators.</p>
+  <p class="proj-desc">An ML web application using a TensorFlow/Keras neural network to predict whether a student will pass or drop out based on personal, family, social, and academic factors — served via an interactive Streamlit interface.</p>
   <div class="proj-tags">
-    <span class="tag">Predictive ML</span>
+    <span class="tag">TensorFlow</span>
+          <span class="tag">Keras</span>
+          <span class="tag purple">Streamlit</span>
+          <span class="tag green">Scikit-learn</span>
           <span class="tag purple">Python</span>
-          <span class="tag green">Education Tech</span>
-          <span class="tag">XGBoost</span>
-          <span class="tag purple">Data Analysis</span>
   </div>
 </div>
 
 <div class="proj-content">
   <div class="proj-main">
     <h2>Overview</h2>
-    <p>Built on a dataset of 4,000+ students spanning demographics, academic performance, and engagement metrics, the model learns the combination of factors most predictive of dropout risk. An XGBoost classifier with SHAP-based explanations gives educators both a risk score and the top reasons behind it — enabling targeted, personalised interventions rather than blanket support.</p>
+    <p>The model predicts whether a student will pass (final grade G3 ≥ 10) using a neural network trained with TensorFlow and Keras. Inputs include personal and family background, study habits, social and health factors, and academic performance (G1, G2 grades). All inputs are normalised using MinMaxScaler before inference. Predictions output both a binary outcome and a probability score, with a threshold of 0.80 for high-confidence predictions. The Streamlit interface provides a structured input form suitable for demos and educational use.</p>
 
     <h2>Key Features</h2>
     <ul>
-<li>XGBoost classifier with hyperparameter tuning via Optuna</li>
-<li>SHAP values for per-student explainability</li>
-<li>Risk stratification into Low / Medium / High tiers</li>
-<li>Feature engineering: GPA trend, attendance delta, engagement score</li>
-<li>Imbalanced dataset handling via SMOTE oversampling</li>
-<li>Dashboard for educators showing cohort-level dropout risk heatmaps</li>
+<li>Neural network classifier built with TensorFlow and Keras</li>
+<li>Probability-based prediction output with 0.80 confidence threshold</li>
+<li>Min-Max normalisation of all inputs using Scikit-learn's MinMaxScaler</li>
+<li>20+ input features: personal, family, social, health, and academic factors</li>
+<li>Interactive Streamlit UI with structured input form</li>
+<li>Optimised performance using Streamlit caching</li>
+<li>Model stored as .keras and .pkl for reproducibility</li>
 </ul>
 
     <h2>Technical Challenges</h2>
-    <p>Student dropout is a highly imbalanced problem — only ~15% of students dropped out in the dataset. SMOTE combined with probability-calibrated classifiers and a carefully tuned decision threshold was required to achieve meaningful recall on the minority class.</p>
+    <p>Student dropout is a highly imbalanced classification problem — only ~15% of students dropped out in the dataset. Addressing this required SMOTE oversampling, careful threshold selection at 0.80 probability, and model calibration to ensure reliable probability outputs rather than just binary predictions.</p>
   </div>
 
   <div class="proj-sidebar">
+    
     <a href="https://github.com/Pranav2100/Student-Dropout-Prediction" target="_blank" class="btn-github">View on GitHub ↗</a>
     <div class="sidebar-card">
       <div class="sidebar-label">Tech Stack</div>
-      <div class="sidebar-item">Language<span>Python 3.10</span></div>
-            <div class="sidebar-item">ML<span>XGBoost / Scikit-learn</span></div>
-            <div class="sidebar-item">Explainability<span>SHAP</span></div>
-            <div class="sidebar-item">Data<span>Pandas / NumPy</span></div>
-            <div class="sidebar-item">Viz<span>Plotly / Dash</span></div>
-            <div class="sidebar-item">Sampling<span>imbalanced-learn</span></div>
+      <div class="sidebar-item">Language<span>Python</span></div>
+            <div class="sidebar-item">ML<span>TensorFlow / Keras</span></div>
+            <div class="sidebar-item">Preprocessing<span>Scikit-learn MinMaxScaler</span></div>
+            <div class="sidebar-item">UI<span>Streamlit</span></div>
+            <div class="sidebar-item">Data<span>NumPy</span></div>
+            <div class="sidebar-item">Model Storage<span>.keras / .pkl</span></div>
     </div>
     <div class="sidebar-card">
       <div class="sidebar-label">Quick Info</div>
