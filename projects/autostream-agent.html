@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --bg: #080c10; --surface: #0e1318; --border: rgba(255,255,255,0.07);
@@ -21,7 +20,7 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-s
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 22px 56px; background: rgba(8,12,16,0.88); border-bottom: 1px solid var(--border); backdrop-filter: blur(18px); }
 .nav-logo { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
 .nav-logo span { color: var(--accent); }
-.nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: color 0.2s; }
+.nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
 .nav-back:hover { color: var(--accent); }
 .nav-back::before { content: '←'; }
 
@@ -48,22 +47,38 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .proj-sidebar { display: flex; flex-direction: column; gap: 20px; }
 .sidebar-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
 .sidebar-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-.sidebar-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--muted); }
+.sidebar-item { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--muted); }
 .sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
-.sidebar-item span { color: var(--text); font-weight: 500; margin-left: auto; font-size: 0.84rem; }
-.btn-github { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: var(--accent); color: var(--bg); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; margin-bottom: 0; }
+.sidebar-item span { color: var(--text); font-weight: 500; margin-left: auto; font-size: 0.84rem; text-align: right; max-width: 160px; }
+.btn-github { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: var(--accent); color: var(--bg); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
 .btn-github:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,212,255,0.25); }
-.btn-demo { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: transparent; color: var(--green); border: 1px solid rgba(0,229,160,0.35); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, background 0.2s, box-shadow 0.2s; }
-.btn-demo:hover { transform: translateY(-2px); background: rgba(0,229,160,0.07); box-shadow: 0 8px 28px rgba(0,229,160,0.12); }
+.btn-demo { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: transparent; color: var(--green); border: 1px solid rgba(0,229,160,0.35); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+.btn-demo:hover { transform: translateY(-2px); background: rgba(0,229,160,0.07); }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); display: inline-block; animation: livepulse 2s ease-in-out infinite; }
+@keyframes livepulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
 
 hr { border: none; border-top: 1px solid var(--border); margin: 0; }
 
-.proj-nav { max-width: 1100px; margin: 0 auto; padding: 0 56px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.pnav-item { background: var(--card); padding: 28px 32px; text-decoration: none; color: inherit; transition: background 0.2s; }
-.pnav-item:hover { background: #151e28; }
-.pnav-dir { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.pnav-name { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
-.pnav-item.next { text-align: right; border-left: 1px solid var(--border); }
+/* ── BOTTOM CTA ── */
+.proj-bottom { max-width: 1100px; margin: 0 auto; padding: 72px 56px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.bottom-card { border: 1px solid var(--border); border-radius: 12px; padding: 40px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 12px; transition: background 0.25s, border-color 0.25s, transform 0.2s; position: relative; overflow: hidden; }
+.bottom-card::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s; border-radius: 12px; }
+.bottom-card.back::before { background: linear-gradient(135deg, rgba(0,212,255,0.05), transparent); }
+.bottom-card.connect::before { background: linear-gradient(135deg, rgba(0,229,160,0.05), transparent); }
+.bottom-card:hover { transform: translateY(-3px); }
+.bottom-card.back:hover { border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.03); }
+.bottom-card.back:hover::before { opacity: 1; }
+.bottom-card.connect:hover { border-color: rgba(0,229,160,0.3); background: rgba(0,229,160,0.03); }
+.bottom-card.connect:hover::before { opacity: 1; }
+.bc-icon { font-size: 1.6rem; margin-bottom: 4px; }
+.bc-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.bottom-card.back .bc-label { color: var(--accent); }
+.bottom-card.connect .bc-label { color: var(--green); }
+.bc-title { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; }
+.bc-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+.bc-arrow { margin-top: auto; font-size: 1.1rem; }
+.bottom-card.back .bc-arrow { color: var(--accent); }
+.bottom-card.connect .bc-arrow { color: var(--green); }
 
 footer { border-top: 1px solid var(--border); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
 footer p { font-size: 0.78rem; color: var(--muted); }
@@ -77,10 +92,9 @@ footer p { font-size: 0.78rem; color: var(--muted); }
   nav { padding: 18px 24px; }
   .proj-hero { padding: 120px 24px 48px; }
   .proj-content { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
-  .proj-nav { margin: 0 24px 48px; padding: 0; }
+  .proj-bottom { grid-template-columns: 1fr; padding: 48px 24px 60px; }
   footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
 }
-
 </style>
 </head>
 <body>
@@ -94,47 +108,42 @@ footer p { font-size: 0.78rem; color: var(--muted); }
   <div class="proj-hero-bg" style="background: radial-gradient(ellipse 700px 500px at 70% 60%, rgba(0,212,255,0.12), transparent);"></div>
   <div class="proj-eyebrow">Project 01 — 2024</div>
   <h1 class="proj-title">Autostream <em>Agent</em></h1>
-  <p class="proj-desc">A stateful, agentic conversational AI built with LangGraph that automates lead capture for a streaming platform. Combines RAG-based knowledge retrieval, intent locking, and slot-filling — deployable on WhatsApp via the Business Cloud API.</p>
-  <div class="proj-tags">
-    <span class="tag">LangGraph</span>
-          <span class="tag">AI Agents</span>
-          <span class="tag purple">Python</span>
-          <span class="tag green">RAG</span>
-          <span class="tag">WhatsApp API</span>
-  </div>
+  <p class="proj-desc">A stateful, agentic conversational AI built with LangGraph that automates lead capture for a streaming platform — combining RAG-based knowledge retrieval, intent locking, and slot-filling, deployable on WhatsApp.</p>
+  <div class="proj-tags"><span class="tag">LangGraph</span>
+    <span class="tag">AI Agents</span>
+    <span class="tag purple">Python</span>
+    <span class="tag green">RAG</span>
+    <span class="tag">WhatsApp API</span></div>
 </div>
 
 <div class="proj-content">
   <div class="proj-main">
     <h2>Overview</h2>
-    <p>Autostream Agent is designed as a single state-driven node using LangGraph that processes user input and updates a shared AgentState across multiple conversation turns. It stores detected intent, user name, email, and creator platform. Once a user expresses high intent, the agent locks it and switches into lead-capture mode — preventing accidental intent resets during slot filling. Knowledge retrieval uses a local JSON-based RAG approach, fetching pricing and policy information deterministically instead of relying on the LLM's internal knowledge, ensuring accuracy and preventing hallucination.</p>
-
+    <p>Autostream Agent is built as a single state-driven node using LangGraph that processes user input and updates a shared AgentState across multiple conversation turns — storing detected intent, user name, email, and creator platform. Once a user expresses high intent, the agent locks it and switches into lead-capture mode, preventing accidental intent resets during slot filling. Knowledge retrieval uses a local JSON-based RAG approach, fetching pricing and policy information deterministically instead of relying on the LLM's internal knowledge, ensuring accuracy and preventing hallucination.</p>
     <h2>Key Features</h2>
     <ul>
 <li>Stateful multi-turn conversation using LangGraph AgentState</li>
-<li>Intent locking — prevents accidental intent resets during slot filling</li>
-<li>Local JSON-based RAG for accurate pricing and policy retrieval</li>
-<li>Lead capture triggered only when all required user details are confirmed</li>
-<li>WhatsApp Business Cloud API integration via webhook + FastAPI backend</li>
+<li>Intent locking — prevents accidental resets during slot filling</li>
+<li>Local JSON-based RAG for deterministic pricing and policy retrieval</li>
+<li>Lead capture triggered only when all required user details are present</li>
+<li>WhatsApp Business Cloud API integration via webhook and FastAPI backend</li>
 <li>Session-based state persistence per user for scalable multi-user support</li>
-<li>CRM-ready output — captured leads forwarded to backend storage on completion</li>
+<li>CRM-ready output — captured leads forwarded to backend on completion</li>
 </ul>
-
     <h2>Technical Challenges</h2>
-    <p>The key challenge was designing a reliable intent-locking mechanism so the agent doesn't reset the user's goal mid-conversation. This required a carefully engineered state schema and prompt design that distinguishes between intent confirmation and incidental topic drift during slot filling.</p>
+    <p>The key challenge was designing a reliable intent-locking mechanism so the agent doesn't reset the user's goal mid-conversation. This required a carefully engineered state schema and prompt design that distinguishes intent confirmation from incidental topic drift during slot filling.</p>
   </div>
-
   <div class="proj-sidebar">
     
     <a href="https://github.com/Pranav2100/Autostream-agent" target="_blank" class="btn-github">View on GitHub ↗</a>
     <div class="sidebar-card">
       <div class="sidebar-label">Tech Stack</div>
       <div class="sidebar-item">Language<span>Python 3.11</span></div>
-            <div class="sidebar-item">Agent Framework<span>LangGraph</span></div>
-            <div class="sidebar-item">LLM<span>OpenAI GPT-4</span></div>
-            <div class="sidebar-item">Knowledge<span>Local JSON RAG</span></div>
-            <div class="sidebar-item">Deployment<span>FastAPI + Webhook</span></div>
-            <div class="sidebar-item">Channel<span>WhatsApp Business API</span></div>
+      <div class="sidebar-item">Agent Framework<span>LangGraph</span></div>
+      <div class="sidebar-item">LLM<span>OpenAI GPT-4</span></div>
+      <div class="sidebar-item">Knowledge<span>Local JSON RAG</span></div>
+      <div class="sidebar-item">Deployment<span>FastAPI + Webhook</span></div>
+      <div class="sidebar-item">Channel<span>WhatsApp Business API</span></div>
     </div>
     <div class="sidebar-card">
       <div class="sidebar-label">Quick Info</div>
@@ -147,14 +156,20 @@ footer p { font-size: 0.78rem; color: var(--muted); }
 
 <hr>
 
-<div class="proj-nav">
-  <a href="../projects/expense-tracker.html" class="pnav-item">
-    <div class="pnav-dir">← Previous</div>
-    <div class="pnav-name">Expense Tracker</div>
+<div class="proj-bottom">
+  <a href="../index.html#projects" class="bottom-card back">
+    <div class="bc-icon">◀</div>
+    <div class="bc-label">Navigate</div>
+    <div class="bc-title">Back to All Projects</div>
+    <div class="bc-desc">Browse the full collection of projects across ML, AI, and full-stack engineering.</div>
+    <div class="bc-arrow">← View all</div>
   </a>
-  <a href="../projects/fake-review-detection.html" class="pnav-item next">
-    <div class="pnav-dir">Next →</div>
-    <div class="pnav-name">Fake Review Detection</div>
+  <a href="../index.html#contact" class="bottom-card connect">
+    <div class="bc-icon">✉</div>
+    <div class="bc-label">Get in Touch</div>
+    <div class="bc-title">Let's Connect</div>
+    <div class="bc-desc">Interested in collaborating or have a project in mind? I'd love to hear from you.</div>
+    <div class="bc-arrow">→ Contact me</div>
   </a>
 </div>
 
