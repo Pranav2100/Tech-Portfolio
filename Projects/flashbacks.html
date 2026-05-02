@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flash backs | Pranav Jagtap</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23080c10'/><rect x='4' y='4' width='92' height='92' rx='19' fill='none' stroke='%2300d4ff' stroke-width='3' opacity='0.4'/><text x='50' y='72' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='%2300d4ff' text-anchor='middle' font-style='italic'>P</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080c10; --surface: #0e1318; --border: rgba(255,255,255,0.07);
+  --text: #e8edf2; --muted: #5a6472; --accent: #00d4ff;
+  --accent2: #7b61ff; --green: #00e5a0; --card: #111820;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 22px 56px; background: rgba(8,12,16,0.88); border-bottom: 1px solid var(--border); backdrop-filter: blur(18px); }
+.nav-logo { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+.nav-logo span { color: var(--accent); }
+.nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: color 0.2s; }
+.nav-back:hover { color: var(--accent); }
+.nav-back::before { content: '←'; }
+
+/* HERO */
+.proj-hero { min-height: 52vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 140px 56px 64px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+.proj-hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.proj-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards; }
+.proj-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+.proj-title { font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.04em; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.7s 0.25s ease forwards; }
+.proj-title em { font-style: italic; color: transparent; -webkit-text-stroke: 1.5px rgba(0,212,255,0.5); }
+.proj-desc { max-width: 600px; font-size: 1.05rem; color: var(--muted); line-height: 1.8; opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards; margin-bottom: 36px; }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 10px; opacity: 0; animation: fadeUp 0.7s 0.55s ease forwards; }
+.tag { padding: 5px 14px; background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.18); border-radius: 100px; font-size: 0.73rem; font-weight: 600; color: var(--accent); letter-spacing: 0.06em; }
+.tag.purple { background: rgba(123,97,255,0.08); border-color: rgba(123,97,255,0.22); color: var(--accent2); }
+.tag.green  { background: rgba(0,229,160,0.07);  border-color: rgba(0,229,160,0.2);   color: var(--green); }
+
+/* CONTENT */
+.proj-content { max-width: 1100px; margin: 0 auto; padding: 80px 56px; display: grid; grid-template-columns: 1fr 320px; gap: 72px; }
+.proj-main h2 { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; margin-top: 48px; }
+.proj-main h2:first-child { margin-top: 0; }
+.proj-main p { color: var(--muted); line-height: 1.85; margin-bottom: 16px; font-size: 0.97rem; }
+.proj-main ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.proj-main ul li { color: var(--muted); font-size: 0.95rem; line-height: 1.7; padding-left: 20px; position: relative; }
+.proj-main ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+
+/* SIDEBAR */
+.proj-sidebar { display: flex; flex-direction: column; gap: 28px; }
+.sidebar-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+.sidebar-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.sidebar-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--muted); }
+.sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
+.sidebar-item span { color: var(--text); font-weight: 500; margin-left: auto; font-size: 0.84rem; }
+.btn-github { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: var(--accent); color: var(--bg); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em; border-radius: 6px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.btn-github:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,212,255,0.25); }
+
+/* DIVIDER */
+hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* NEXT PREV */
+.proj-nav { max-width: 1100px; margin: 0 auto; padding: 0 56px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.pnav-item { background: var(--card); padding: 28px 32px; text-decoration: none; color: inherit; transition: background 0.2s; }
+.pnav-item:hover { background: #151e28; }
+.pnav-dir { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.pnav-name { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
+.pnav-item.next { text-align: right; border-left: 1px solid var(--border); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 28px 56px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+footer p { font-size: 0.78rem; color: var(--muted); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+
+@media(max-width:900px){
+  nav { padding: 18px 24px; }
+  .proj-hero { padding: 120px 24px 48px; }
+  .proj-content { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
+  .proj-nav { margin: 0 24px 48px; padding: 0; }
+  footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Pranav<span>.</span></a>
+  <a href="../index.html#projects" class="nav-back">All Projects</a>
+</nav>
+
+<div class="proj-hero">
+  <div class="proj-hero-bg" style="background: radial-gradient(ellipse 700px 500px at 70% 60%, rgba(123,97,255,0.12), transparent);"></div>
+  <div class="proj-eyebrow">Project 07 — 2023</div>
+  <h1 class="proj-title">Flash <em>backs</em></h1>
+  <p class="proj-desc">A full-stack memories app that intelligently resurfaces past moments through date-based and context-aware triggers — helping users rediscover and relive meaningful experiences.</p>
+  <div class="proj-tags">
+    <span class="tag">Full-Stack</span>
+          <span class="tag purple">React</span>
+          <span class="tag green">Node.js</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag purple">REST API</span>
+  </div>
+</div>
+
+<div class="proj-content">
+  <div class="proj-main">
+    <h2>Overview</h2>
+    <p>Flashbacks is a personal memory journal with a twist — instead of scrolling through a timeline, the app proactively surfaces memories from one, six, or twelve months ago through daily digests and smart notifications. Users capture moments with text and photos; the app handles the discovery. Built with a React frontend, Express/Node.js backend, and MongoDB Atlas for storage.</p>
+
+    <h2>Key Features</h2>
+    <ul>
+<li>Daily 'On This Day' digest surfacing memories from past dates</li>
+<li>Photo and text capture with tagging and mood labelling</li>
+<li>Smart notification system for milestone anniversaries</li>
+<li>Full-text search across all memories with date range filters</li>
+<li>Private by default — end-to-end encryption for stored content</li>
+<li>Progressive Web App (PWA) for mobile home screen install</li>
+</ul>
+
+    <h2>Technical Challenges</h2>
+    <p>Building the smart resurfacing algorithm required balancing recency, emotional weight (derived from user tags), and variety — so users don't see the same memory repeatedly. A scoring function combining temporal distance and engagement signals was used to rank memories for each digest.</p>
+  </div>
+
+  <div class="proj-sidebar">
+    <a href="https://github.com/Pranav2100/Flashbacks" target="_blank" class="btn-github">View on GitHub ↗</a>
+    <div class="sidebar-card">
+      <div class="sidebar-label">Tech Stack</div>
+      <div class="sidebar-item">Frontend<span>React 18 / Vite</span></div>
+            <div class="sidebar-item">Backend<span>Node.js / Express</span></div>
+            <div class="sidebar-item">Database<span>MongoDB Atlas</span></div>
+            <div class="sidebar-item">Auth<span>JWT / bcrypt</span></div>
+            <div class="sidebar-item">Storage<span>Cloudinary</span></div>
+            <div class="sidebar-item">Deploy<span>Vercel + Render</span></div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-label">Quick Info</div>
+      <div class="sidebar-item">Year<span>2023</span></div>
+      <div class="sidebar-item">Type<span>Personal Project</span></div>
+      <div class="sidebar-item">Status<span style="color:var(--green)">Complete</span></div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="proj-nav">
+  <a href="../projects/recipe-recommender.html" class="pnav-item">
+    <div class="pnav-dir">← Previous</div>
+    <div class="pnav-name">Recipe Recommender</div>
+  </a>
+  <a href="../projects/expense-tracker.html" class="pnav-item next">
+    <div class="pnav-dir">Next →</div>
+    <div class="pnav-name">Expense Tracker</div>
+  </a>
+</div>
+
+<footer>
+  <p>© 2025 Pranav Jagtap</p>
+  <div class="footer-links">
+    <a href="https://github.com/Pranav2100" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/pranav--jagtap/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
