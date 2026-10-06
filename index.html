@@ -17,6 +17,11 @@
 <meta property="og:description" content="Software Developer specialising in ML, AI agents, and full-stack engineering.">
 <meta property="og:url" content="https://pranav-jagtap.vercel.app">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://pranav-jagtap.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pranav-jagtap.vercel.app/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -28,7 +33,7 @@
     --surface: #0e1318;
     --border: rgba(255,255,255,0.07);
     --text: #e8edf2;
-    --muted: #5a6472;
+    --muted: #8b97a7;
     --accent: #00d4ff;
     --accent2: #7b61ff;
     --green: #00e5a0;
@@ -906,6 +911,56 @@
   will-change: transform;
 }
 
+/* mobile menu */
+.nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:6px;width:42px;height:42px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+.nav-toggle span{width:18px;height:2px;background:var(--text);transition:transform .25s,opacity .25s}
+nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .nav-toggle span:nth-child(2){opacity:0}
+nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:900px){
+  .nav-toggle{display:flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;padding:12px 20px 20px;background:rgba(8,12,16,.97);border-bottom:1px solid var(--border)}
+  nav.open .nav-links{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:14px 0;font-size:1rem}
+  .nav-resume{display:inline-block;margin-top:8px}
+}
+
+/* experience */
+#experience{border-top:1px solid var(--border)}
+.timeline{margin-top:48px;display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--border)}
+.tl-item:first-child{padding-top:0}
+.tl-item:last-child{border-bottom:none}
+.tl-date{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.tl-role{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;letter-spacing:-.02em}
+.tl-org{color:var(--muted);font-size:.88rem;margin:4px 0 14px}
+.tl-body ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.tl-body li{position:relative;padding-left:18px;color:var(--muted);font-size:.9rem;line-height:1.7}
+.tl-body li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:1px;background:var(--accent)}
+@media (max-width:900px){.tl-item{grid-template-columns:1fr;gap:8px}}
+
+/* keep the nav pinned on all devices */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+nav.scrolled {
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+@media (max-width: 1024px) {
+  nav {
+    background: rgba(8,12,16,.92);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -919,11 +974,15 @@
   <a href="#" class="nav-logo">Pranav<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="Pranav_Jagtap_Resume.pdf" data-resume target="_blank" rel="noopener" class="nav-resume">Resume ↓</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -951,12 +1010,12 @@
           <div class="stat-label">Projects Built</div>
         </div>
         <div>
-          <div class="stat-num">3<span>+</span></div>
-          <div class="stat-label">Yrs Exp</div>
+          <div class="stat-num">1<span>+</span></div>
+          <div class="stat-label">Yr Professional</div>
         </div>
         <div>
-          <div class="stat-num">5<span>+</span></div>
-          <div class="stat-label">ML Models</div>
+          <div class="stat-num">3<span>+</span></div>
+          <div class="stat-label">ML Projects</div>
         </div>
       </div>
     </div>
@@ -979,8 +1038,8 @@
       <div class="float-card fc-ml">
         <div class="fc-icon" style="background:rgba(0,212,255,0.1);">🤖</div>
         <div>
-          <div class="fc-label">ML Engineer</div>
-          <div class="fc-sub">5+ models deployed</div>
+          <div class="fc-label">AI / ML Engineer</div>
+          <div class="fc-sub">NLP · Prediction · Agents</div>
         </div>
       </div>
 
@@ -1095,6 +1154,47 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag reveal">Experience</div>
+  <h2 class="reveal">Where I've <em>Worked</em></h2>
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-date">Jan 2026 – Present</div>
+      <div class="tl-body">
+        <div class="tl-role">Software Engineer Intern</div>
+        <div class="tl-org">Sharelog Techguide Pvt. Ltd. · Pune, India</div>
+        <ul>
+          <li>Built Python backend services and REST APIs for a financial trading analytics platform, improving data ingestion throughput by 30% for 500+ active users.</li>
+          <li>Engineered real-time data pipelines with PostgreSQL, cutting manual intervention by 70% and production errors by 40%.</li>
+          <li>Optimised PostgreSQL schemas and indexing, improving query throughput by 30% and reducing latency by 15%.</li>
+          <li>Deployed containerised FastAPI services with Docker, cutting deployment time by 50%.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Oct 2024 – Oct 2025</div>
+      <div class="tl-body">
+        <div class="tl-role">Game Developer (Collaboration)</div>
+        <div class="tl-org">SKY3D Studio · Mumbai, India</div>
+        <ul>
+          <li>Built a complete Unreal Engine 5 game with 15+ modular gameplay systems using Blueprints and event-driven architecture, reducing interaction bugs by 30%.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Aug 2023 – Apr 2024</div>
+      <div class="tl-body">
+        <div class="tl-role">Software Engineer Intern</div>
+        <div class="tl-org">SKY3D Studio · Mumbai, India</div>
+        <ul>
+          <li>Shipped 10+ features in 2-week Agile sprints, keeping 99.9% uptime across backend services handling 1,000+ monthly requests.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects" style="max-width:unset; padding-left:56px; padding-right:56px;">
   <div style="max-width:1200px; margin:0 auto;">
@@ -1107,7 +1207,7 @@
     <!-- Row 1: 2 equal cards -->
     <div class="project-featured reveal">
       <a class="project-card" href="projects/autostream-agent.html">
-        <div class="project-number">01 — 2024 <span class="arrow">↗</span></div>
+        <div class="project-number">01 — 2026 <span class="arrow">↗</span></div>
         <div class="project-title">Autostream Agent</div>
         <p class="project-desc">An autonomous AI agent capable of automating complex streaming workflows. Integrates LLM-based reasoning with real-time decision-making to manage end-to-end data pipeline tasks without human intervention.</p>
         <div class="project-tags">
@@ -1155,7 +1255,7 @@
         <div class="card-live"><span class="live-dot"></span>Live on Render</div>
       </a>
       <a class="project-card" href="projects/student-dropout.html">
-        <div class="project-number">05 — 2023 <span class="arrow">↗</span></div>
+        <div class="project-number">05 — 2025 <span class="arrow">↗</span></div>
         <div class="project-title">Student Dropout Prediction</div>
         <p class="project-desc">Predictive analytics model identifying at-risk students before they disengage. Uses behavioural, demographic, and academic features to generate early-intervention signals for educators.</p>
         <div class="project-tags">
@@ -1270,7 +1370,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Pranav. Built with precision.</p>
+  <p>© 2026 Pranav. Built with precision.</p>
   <div class="footer-links">
     <a href="https://github.com/Pranav2100" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/pranav--jagtap/" target="_blank">LinkedIn</a>
@@ -1312,6 +1412,21 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 reveals.forEach(el => io.observe(el));
+
+// mobile menu
+const navToggle = document.getElementById('navToggle');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    })
+  );
+}
 
 // ── TERMINAL TYPER ──
 const termLines = [
